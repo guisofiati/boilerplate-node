@@ -1,0 +1,51 @@
+{
+  "name": "boilerplate-node",
+  "version": "1.0.0",
+  "description": "Provides a boilerplate for node applications",
+  "main": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "husky install",
+    "build": "tsup src --out-dir build",
+    "commit": "git-cz"
+  },
+  "keywords": [],
+  "author": "Guilherme Sofiati Fantin",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "16.0.3",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.5.1",
+    "@commitlint/config-conventional": "17.4.4",
+    "@rocketseat/eslint-config": "1.2.0",
+    "@types/node": "18.15.10",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "8.36.0",
+    "husky": "^8.0.0",
+    "lint-staged": "13.2.0",
+    "tsup": "6.7.0",
+    "tsx": "3.12.6",
+    "typescript": "5.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
